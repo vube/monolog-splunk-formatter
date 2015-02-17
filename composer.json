@@ -1,0 +1,25 @@
+{
+  "name": "vube/monolog-splunk-formatter",
+  "description": "Splunk Line Formatter for Monolog",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ross Perkins",
+      "email": "ross@vubeology.com",
+      "homepage": "http://code.vube.com/"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "require-dev": {
+    "monolog/monolog": "~1.0",
+    "phpunit/phpunit": "~4.0",
+    "satooshi/php-coveralls": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vube\\Monolog\\Formatter\\": "src/"
+    }
+  }
+}
