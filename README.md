@@ -1,7 +1,7 @@
 # Splunk Formatter
 
 [![Build Status](https://travis-ci.org/vube/monolog-splunk-formatter.svg)](https://travis-ci.org/vube/monolog-splunk-formatter)
-[![Coverage Status](https://coveralls.io/repos/vube/monolog-splunk-formatter/badge.png?branch=master)](https://coveralls.io/r/vube/monolog-splunk-formatter?branch=master)
+[![Coverage Status](https://coveralls.io/repos/vube/monolog-splunk-formatter/badge.svg)](https://coveralls.io/r/vube/monolog-splunk-formatter)
 [![Latest Stable Version](https://poser.pugx.org/vube/monolog-splunk-formatter/v/stable.png)](https://packagist.org/packages/vube/monolog-splunk-formatter)
 [![Dependency Status](https://www.versioneye.com/user/projects/54e2df278bd69f90bd00007a/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54e2df278bd69f90bd00007a)
 
