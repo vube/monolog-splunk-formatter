@@ -126,7 +126,7 @@ class SplunkLineFormatterTest extends \PHPUnit_Framework_TestCase
             'a' => array(1),
         );
         $x = $this->slf->publicConvertToString($raw);
-        $this->assertSame('a="{^a^:[1]}"', $x);
+        $this->assertSame('a="[1]"', $x);
     }
 
     public function testConvertToString_AssocAssoc()
@@ -135,7 +135,7 @@ class SplunkLineFormatterTest extends \PHPUnit_Framework_TestCase
             'a' => array('b' => 1),
         );
         $x = $this->slf->publicConvertToString($raw);
-        $this->assertSame('a="{^a^:{^b^:1}}"', $x);
+        $this->assertSame('a="{^b^:1}"', $x);
     }
 
     public function testConvertToString_AssocAssoc_CustomQuotes()
@@ -145,7 +145,7 @@ class SplunkLineFormatterTest extends \PHPUnit_Framework_TestCase
         );
         $this->slf->setQuoteReplacement('@');
         $x = $this->slf->publicConvertToString($raw);
-        $this->assertSame('a="{@a@:{@b@:1}}"', $x);
+        $this->assertSame('a="{@b@:1}"', $x);
     }
 
     public function testLogFormat()
