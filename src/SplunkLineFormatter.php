@@ -91,7 +91,7 @@ class SplunkLineFormatter extends LineFormatter
                     }
                 }
                 else {
-                    $v = '"' . $this->toQuoteSafeString($this->jsonEncode($data)) . '"';
+                    $v = '"' . $this->toQuoteSafeString($this->jsonEncode($v)) . '"';
                 }
 
                 $vals[] = "$n=$v";

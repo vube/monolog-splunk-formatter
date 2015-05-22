@@ -157,7 +157,7 @@ class SplunkLineFormatterTest extends \PHPUnit_Framework_TestCase
         $records = $this->handler->getRecords();
         $this->assertSame(1, count($records));
         $message = $records[0]['formatted'];
-        $this->assertTrue((bool) preg_match('/^\d+ test.NOTICE L=250 message here a="A A"\s*\n$/', $message),
+        $this->assertTrue((bool) preg_match('/^\d+ test\.NOTICE L=250 message here a="A A"\s*\n$/', $message),
             "Message doesn't match expected regex: $message");
     }
 
@@ -170,7 +170,22 @@ class SplunkLineFormatterTest extends \PHPUnit_Framework_TestCase
         $records = $this->handler->getRecords();
         $this->assertSame(1, count($records));
         $message = $records[0]['formatted'];
-        $this->assertTrue((bool) preg_match('/^\d+ test.WARNING L=300 message "with quotes" a="A A"\s*\n$/', $message),
+        $this->assertTrue((bool) preg_match('/^\d+ test\.WARNING L=300 message "with quotes" a="A A"\s*\n$/', $message),
+            "Message doesn't match expected regex: $message");
+    }
+
+    public function testLogWithAssocArrayInContext()
+    {
+        $context = array(
+            'cdata' => array(
+                'ca' => 'CA',
+            ),
+        );
+        $this->log->addWarning('message', $context);
+        $records = $this->handler->getRecords();
+        $this->assertSame(1, count($records));
+        $message = $records[0]['formatted'];
+        $this->assertTrue((bool) preg_match('/^\d+ test\.WARNING L=300 message cdata="\{\^ca\^:\^CA\^\}"\s*\n$/', $message),
             "Message doesn't match expected regex: $message");
     }
 }
